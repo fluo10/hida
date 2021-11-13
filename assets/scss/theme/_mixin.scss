@@ -1,0 +1,212 @@
+@mixin theme-base($color){
+  .sidebar {
+      background-color: $color;
+    }
+  content a,
+  .related-posts li a:hover {
+      color: $color;
+  }
+}
+
+@mixin base16($base00, $base01, $base02, $base03, 
+              $base04, $base05, $base06, $base07,
+              $base08, $base09, $base0A, $base0B, 
+              $base0C, $base0D, $base0E, $base0F){
+  body {
+    color: $base04;
+    background-color: $base00;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  strong {
+    color: $base06;
+  }
+  hr {
+    border-top-color: $base01;
+    border-bottom-color:  $base00;
+  }
+  
+  abbr {
+    color: $base04;
+  }
+  abbr[title] {
+    border-bottom-color: $base01;
+  }
+  
+  /* Code */
+  code {
+    color: $base04;
+    background-color: $base01;
+  }
+  pre {
+    background-color: $base01;
+  }
+  /* Quotes */
+  blockquote {
+    border-left-color: $base01;
+  }
+  
+  /* Tables */
+  table {
+    border-color: $base01;
+  }
+  td,
+  th {
+    border-color: $base01;
+  }
+  tbody tr:nth-child(odd) td,
+  tbody tr:nth-child(odd) th {
+    background-color: $base00;
+  }
+  
+  /*
+   * Messages
+   *
+   * Show alert messages to users. You may add it to single elements like a `<p>`,
+   * or to a parent if there are multiple elements to show.
+   */
+  .message {
+    color: $base04;
+    background-color: $base01;
+  }
+  
+  /*
+   * Masthead
+   *
+   * Super small header above the content for site name and short description.
+   */
+  
+  .masthead-title,
+  .masthead-title a {
+    color: $base04;
+  }
+  .masthead-title small {
+    color: $base03;
+  }
+  
+  
+  /*
+   * Posts and pages
+   *
+   * Each post is wrapped in `.post` and is used on default and post layouts. Each
+   * page is wrapped in `.page` and is only used on the page layout.
+   */
+  
+  /* Blog post or page title */
+  .page-title,
+  .post-title,
+  .post-title a {
+    color: $base06;
+  }
+  
+  /* Meta data line below post title */
+  .post-date {
+    color: $base04;
+  }
+  
+  /* Related posts */
+  .related {
+    border-top-color: $base01;
+  }
+  .related-posts li small {
+    color: $base03;
+  }
+
+  .related-posts li a:hover small {
+    color: inherit;
+  }
+  
+  
+  /*
+   * Pagination
+   *
+   * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+   * there are no more previous or next posts to show.
+   */
+  
+  .pagination {
+    color: $base03;
+  }
+  
+  /* Pagination items can be `span`s or `a`s */
+  .pagination-item {
+    border-color: $base01;
+  }
+  
+  /* Only provide a hover state for linked pagination items */
+  a.pagination-item:hover {
+    background-color: $base01;
+  }
+
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+ */
+
+  .sidebar {
+    color: rgba($base00,0.5);
+    background-color: $base04;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    color: $base00;
+  }
+  
+  /* About section */
+  .sidebar-about h1 {
+    color: $base00;
+  }
+  
+  
+  /*git
+   * Themes
+   *
+   * As of v1.1, Hyde includes optional themes to color the sidebar and links
+   * within blog posts. To use, add the class of your choosing to the `body`.
+   */
+  
+  /* Base16 (http://chriskempson.github.io/base16/#default) */
+  
+  /* Red */
+  .theme-base-08{
+    @include theme-base($base08);
+  }
+  
+  /* Orange */
+  .theme-base-09{
+    @include theme-base($base09);
+  }
+  
+  /* Yellow */
+  .theme-base-0a{
+    @include theme-base($base0A);
+  }
+  
+  /* Green */
+  .theme-base-0b{
+    @include theme-base($base0B);
+  }
+  
+  /* Cyan */
+  .theme-base-0c{
+    @include theme-base($base0C);
+  }
+  
+  /* Blue */
+  .theme-base-0d{
+    @include theme-base($base0D);
+  }
+  
+  /* Magenta */
+  .theme-base-0e{
+    @include theme-base($base0E);
+  }
+  
+  /* Brown */
+  .theme-base-0f{
+    @include theme-base($base0F);
+  }  
+}
