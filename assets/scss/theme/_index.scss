@@ -1,0 +1,10 @@
+
+/*body[data-theme="light"]{ */
+@media (prefers-color-scheme: light) {
+    @import "light";
+}
+
+/*body[data-theme="dark"]{*/
+@media (prefers-color-scheme: dark) {
+    @import "dark";
+}
