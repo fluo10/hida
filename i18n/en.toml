@@ -10,3 +10,9 @@ other = 'Current language'
 [translations]
 one = 'Other translation'
 other = 'Other translations'
+[tags]
+one = 'Tag'
+other = 'Tags'
+[categories]
+one = 'Category'
+other = 'Category'

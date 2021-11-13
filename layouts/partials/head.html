@@ -20,7 +20,7 @@
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/poole.css">
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/hyde.css">
-  {{ $sass := resources.Get "scss/style.scss" }}
+  {{ $sass := resources.Get "sass/style.scss" }}
   {{ $style := $sass | resources.ToCSS }}
   <link type="text/css" rel="stylesheet" href="{{ $style.Permalink }}">
 

@@ -6,3 +6,7 @@ other = 'This article has {{ .WordCount}} words.'
 other = '現在の言語'
 [translations]
 other = '他の言語'
+[tags]
+other = 'タグ'
+[categories]
+other = 'カテゴリ'
