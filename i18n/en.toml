@@ -1,0 +1,12 @@
+[date]
+other = 'Posted at'
+[wordCount]
+other = 'This article has {{ .WordCount}} words.'
+[readingTime]
+one = 'One minute to read'
+other = '{{.Count}} minutes to read'
+[currentLanguage]
+other = 'Current language'
+[translations]
+one = 'Other translation'
+other = 'Other translations'

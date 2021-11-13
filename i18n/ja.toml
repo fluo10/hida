@@ -1,0 +1,8 @@
+[date]
+other = '投稿日'
+[wordCount]
+other = 'This article has {{ .WordCount}} words.'
+[currentLanguage]
+other = '現在の言語'
+[translations]
+other = '他の言語'
