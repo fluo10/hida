@@ -23,7 +23,11 @@
   {{ $sass := resources.Get "sass/style.scss" }}
   {{ $style := $sass | resources.ToCSS }}
   <link type="text/css" rel="stylesheet" href="{{ $style.Permalink }}">
-
+  <style>
+    {{ with .Site.Param "inlinedelimiter" }}
+    --inline-list-delimiter: {{ i18n "inlineListDelimiter" . }};
+    {{ end }}
+  </style>
   {{ partial "head_fonts.html" . }}
 
   <!-- Icons -->

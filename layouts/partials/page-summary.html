@@ -1,0 +1,25 @@
+<dl class="description-table">
+<dt>{{ i18n "date" . }}: </dt>
+<dd><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}" class="post-date">{{ .Date | time.Format ":date_full" }} {{ .Date | time.Format ":time_short" }}</time></dd>
+{{ with .Params.categories }}
+<dt>{{ i18n "categories" . }}:</dt>
+<dd>
+    <ul class="inline-list">
+        {{ range . -}}
+        <li><a href="{{ "categories" | absURL }}/{{ . | urlize }}">{{ . }}</a></li>
+        {{- end }}
+    </ul>
+</dd>
+{{ end }}
+{{ with .Params.tags }}
+<dt>{{ i18n "tags" . }}:</dt>
+<dd>
+    <ul class="inline-list">
+        {{ range . -}}
+        <li><a href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a></li>
+        {{- end }}
+    </ul>
+</dd>
+{{ end }}
+</dl>
+{{ default .Summary .Description }}
