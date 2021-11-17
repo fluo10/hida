@@ -1,11 +1,24 @@
-.post-taxonomy{
-    ul{
-        display: inline-block;
-        padding-left: 0;
-        margin: 0;
-    }
+ul.inline-list{
+    display: inline-block;
+    padding-left: 0;
+    margin: 0;
     li{
         display: inline-block;
         margin-left: 0.5em;
+       &::after {
+           content: " ";
+       }
+       &:last-child{
+           &::after {
+               content: "";
+           }
+       } 
+    }
+}
+dl.description-table{
+    display: grid;
+    grid-template-columns: max-content auto;
+    dd {
+        margin: 0;
     }
 }

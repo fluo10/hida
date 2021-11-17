@@ -10,3 +10,5 @@ other = '他の言語'
 other = 'タグ'
 [categories]
 other = 'カテゴリ'
+[inlineListDelimiter]
+other = '、'

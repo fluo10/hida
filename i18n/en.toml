@@ -16,3 +16,5 @@ other = 'Tags'
 [categories]
 one = 'Category'
 other = 'Category'
+[inlineListDelimiter]
+other = ", "
