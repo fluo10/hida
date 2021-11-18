@@ -1,7 +1,7 @@
 @mixin theme-base($color){
   .sidebar {
       background-color: $color;
-    }
+  }
   content a,
   .related-posts li a:hover {
       color: $color;
@@ -16,7 +16,12 @@
     color: $base04;
     background-color: $base00;
   }
-
+  a {
+    color: $base0D;
+  }
+  a:visited {
+    color: $base0E;
+  }
   h1, h2, h3, h4, h5, h6,
   strong {
     color: $base06;
