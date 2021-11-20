@@ -9,26 +9,33 @@
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="{{ .Site.BaseURL }}">Home</a> </li>
+        <li><a href="{{ .Site.BaseURL | absLangURL}}">Home</a><br />
+          <ul class="sub-menu inline-list">
+            {{ range $.Site.Home.AllTranslations }}
+            <li class="{{ if (eq .Language.Lang $.Site.Language.Lang) }}active{{ end }}">
+              <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+            {{ end }}
+          </ul>
+        </li>
         {{ $currentPage := . }}
         {{ range .Site.Menus.main -}}
         {{ if .HasChildren }}
         <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-            <a href="#">
+            <a href="{{ .URL | relLangURL}}">
                 {{ .Pre }}
                 <span>{{ .Name }}</span>
-            </a>
-        </li>
+            </a><br />
         <ul class="sub-menu inline-list">
             {{ range .Children }}
                 <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
-                    <a href="{{ .URL }}">{{ .Name }}</a>
+                    <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
                 </li>
             {{ end }}
         </ul>
+        </li>
         {{ else }}
         <li>
-            <a href="{{ .URL }}">
+            <a href="{{ .URL | relLangURL }}">
                 {{ .Pre }}
                 <span>{{ .Name }}</span>
             </a>
@@ -37,15 +44,7 @@
         {{- end }}
       </ul>
     </nav>
-    <ul>
-    {{ range $.Site.Home.AllTranslations }}
-    {{ if (eq .Language.Lang $.Site.Language.Lang) }}
-    <li>{{ .Language.LanguageName }}</li>
-    {{ else }}
-    <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
-    {{ end }}
-    {{ end }}
-    </ul>
+    
     <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p>
   </div>
 </aside>

@@ -1,0 +1,18 @@
+{{ define "main" -}}
+<h1>{{ .Title }}</h1>
+<ul class="posts">
+{{ if isset .Params "sorttitle" }}
+{{ range .Data.Pages.ByParam "sorttitle" }}
+<li>
+  <span><a href="{{ .Permalink }}">{{ .Title }}</a> <time class="pull-right post-list" datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ i18n "date" . }}: {{ .Date | time.Format ":date_full" }} {{ .Date | time.Format ":time_short" }}</time></span>
+</li>
+{{ end }}
+{{ else }}
+{{ range .Data.Pages.ByTitle -}}
+<li>
+  <span><a href="{{ .Permalink }}">{{ .Title }}</a> <time class="pull-right post-list" datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ i18n "date" . }}: {{ .Date | time.Format ":date_full" }} {{ .Date | time.Format ":time_short" }}</time></span>
+</li>
+{{- end }}
+{{ end }}
+</ul>
+{{- end }}
