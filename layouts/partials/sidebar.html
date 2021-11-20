@@ -21,30 +21,34 @@
         {{ range .Site.Menus.main -}}
         {{ if .HasChildren }}
         <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-            <a href="{{ .URL | relLangURL}}">
-                {{ .Pre }}
-                <span>{{ .Name }}</span>
-            </a><br />
-        <ul class="sub-menu inline-list">
+          {{ if isset . "url" }}
+          <a href="{{ .URL | relLangURL}}">
+            {{ .Pre }}
+              <span>{{ .Name }}</span>
+          </a><br />
+          {{ else }}
+          {{ .Pre }}
+          <span>{{ .Name }}</span><br />
+          {{ end }}
+          <ul class="sub-menu inline-list">
             {{ range .Children }}
-                <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
-                    <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-                </li>
+            <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+              <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+            </li>
             {{ end }}
-        </ul>
+          </ul>
         </li>
         {{ else }}
         <li>
-            <a href="{{ .URL | relLangURL }}">
-                {{ .Pre }}
-                <span>{{ .Name }}</span>
-            </a>
+          <a href="{{ .URL | relLangURL }}">
+            {{ .Pre }}
+            <span>{{ .Name }}</span>
+          </a>
         </li>
         {{ end }}
         {{- end }}
       </ul>
     </nav>
-    
     <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p>
   </div>
 </aside>

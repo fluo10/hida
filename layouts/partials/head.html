@@ -3,6 +3,7 @@
 <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel=”canonical” href=”{{ .Permalink }}”>
   {{ hugo.Generator }}
 
   <!-- Enable responsiveness on mobile devices-->
@@ -14,6 +15,7 @@
   <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
   {{- end }}
   <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 
   <!-- CSS -->
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/print.css" media="print">
@@ -33,6 +35,21 @@
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
   {{ end -}}
+
+  <!-- OGP -->
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{ if .IsHome -}}
+  <meta property="og:title" content="{{ .Site.Title }}">
+  {{- else -}}
+  <meta property="og:title" content="{{ .Title }} &middot; {{ .Site.Title }}">
+  {{- end }}
+  <meta property="og:description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{ with .Params.thumbnail}}<meta property="og:image" content="{{ . | absLangURL }}">{{ end }}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="{{ .Permalink }}">
+  {{ with .Params.thumbnail}}<meta name="twitter:image" content="{{ . | absLangURL }}">{{ end }}
 
   {{ partial "hook_head_end.html" . }}
 </head>
