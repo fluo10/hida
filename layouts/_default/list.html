@@ -2,7 +2,18 @@
 <ul class="posts">
 {{ range .Data.Pages -}}
   <li>
-    <span><a href="{{ .Permalink }}">{{ .Title }}</a> <time class="pull-right post-list" datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ i18n "date" . }}: {{ .Date | time.Format ":date_full" }} {{ .Date | time.Format ":time_short" }}</time></span>
+    <article class="post">
+      <h1 class="post-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h1>
+      {{ partial "page-summary.html" . }}
+      {{ default .Summary .Description }}
+      {{ if .Truncated }}
+      <div class="read-more-link">
+        <a href="{{ .RelPermalink }}">Read More…</a>
+      </div>
+      {{ end }}
+    </article>
   </li>
 {{- end }}
 </ul>

@@ -13,7 +13,7 @@
               $base08, $base09, $base0A, $base0B, 
               $base0C, $base0D, $base0E, $base0F){
   body {
-    color: $base04;
+    color: $base05;
     background-color: $base00;
   }
   a:link {
@@ -107,6 +107,10 @@
   /* Meta data line below post title */
   .post-date {
     color: $base04;
+  }
+  .post-metadata {
+    color: $base04;
+ 
   }
   
   /* Related posts */
