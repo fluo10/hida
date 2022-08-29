@@ -7,7 +7,7 @@
     <ul class="inline-list">
         {{ range . -}}
         {{ with $.Site.GetPage ( path.Join "categories" . ) }}
-        <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
         {{ else }}
         <li><a href="{{ "categories/" | absLangURL }}{{ . | urlize }}">{{ . }}</a></li>
         {{ end }}
@@ -21,7 +21,7 @@
     <ul class="inline-list">
         {{ range . -}}
         {{ with $.Site.GetPage ( path.Join "categories" . ) }}
-        <li><a href=" {{ .URL }}">{{ .Title }}</a></li>
+        <li><a href=" {{ .Permalink }}">{{ .Title }}</a></li>
         {{ else }}
         <li><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a></li>
         {{ end }}
