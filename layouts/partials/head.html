@@ -23,7 +23,7 @@
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/hyde.css">
   {{ $sass := resources.Get "sass/style.scss" }}
-  {{ $style := $sass | resources.ToCSS }}
+  {{ $style := $sass | toCSS }}
   <link type="text/css" rel="stylesheet" href="{{ $style.Permalink }}">
   {{ partial "head_fonts.html" . }}
 
